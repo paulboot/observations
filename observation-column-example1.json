@@ -1,0 +1,122 @@
+{
+	"observedProperty": "WaterGeleidendheid",
+	"locationFullName": "HVH........",
+	"locationNameSpace": "moet op de MKK-DL altijd NL.RWS.wm zijn!!",
+	"WRONGmeasurementEndTime": "2017-02-07T13:05:59Z",
+	"WRONGmeasurementStartTime": "2017-02-07T13:05:00Z",
+	"WRONGmeasurementPhenomenonTime": "2017-02-07T13:05:30Z",
+      "WRONGprocedureCreationType-elk-interval-kan-een-andere-procedure-hebben": "validation|sensor|forecast",
+	"positionAncorPoint": "GPSx,GPSy,GPSz",
+	"procedureCreationName": "model name and run??|na",
+	"procedureCreationTime": "at-what-time-run??",
+	"aspectSetType": "minimum|maximum",
+	"aspectMetaValues": 
+	[
+		{
+			"name": "avarage",
+			"reference": "NAP",
+			"unit": "m"
+		},
+		{
+			"name": "minimum",
+			"reference": "NAP",
+			"unit": "m"
+		},
+		{
+			"name": "surface",
+			"reference": "na",
+			"unit": "m2"
+		},
+		{
+			"name": "liveliness",
+			"reference": "na",
+			"unit": "m"
+		},
+		{
+			"name": "peakDuration",
+			"reference": "na",
+			"unit": "s"
+		}
+	],
+	"positions": 
+	[
+		{
+			"offsetX": 0,
+			"offsetY": 0,
+			"offsetZ": -1.0,
+			"offsetUnit": "m",
+			"aspects": 
+			[
+				{
+					"name": "avarage",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 1.205
+				},
+				{
+					"name": "minimum",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 0.012
+				},
+				{
+					"name": "surface",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 1.1
+				},
+				{
+					"name": "liveliness",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 0.1
+				},
+				{
+					"name": "peakDuration",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 0.1
+				}
+			]
+		},
+		{
+			"offsetX": 0,
+			"offsetY": 0,
+			"offsetZ": -2.0,
+			"offsetUnit": "m",
+			"aspects": 
+			[
+				{
+					"name": "avarage",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 1.205
+				},
+				{
+					"name": "minimum",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 0.012
+				},
+				{
+					"name": "surface",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 1.1
+				},
+				{
+					"name": "liveliness",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 0.1
+				},
+				{
+					"name": "peakDuration",
+					"quality": 15,
+					"uncertanty": null,
+					"value": 0.1
+				}
+			]
+		}
+	]
+}
