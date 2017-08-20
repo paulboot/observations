@@ -1,10 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 #Import config settings here
 ##if file not exist echo use config-example.py
 #from config import *
 
 #Imports for generic parsing etc..
+import json
 import logging
 import time
 import re
@@ -159,6 +160,30 @@ if __name__ == '__main__':
         pp.pprint(targets)
         pp.pprint(places)
         pp.pprint(building)
+    
+    ##JSON demo
+    dataDict = {}
+    jsonDemo = True
+    if jsonDemo:
+        with open('observation-column-example1.json', 'r') as f:
+            data = json.load(f)
+            pp = pprint.PrettyPrinter(indent=4)
+            #pp.pprint(data)
+        
+        for position in data['positions']:
+            pp.pprint(position)
+            keyPosition = (position['offsetX'],position['offsetY'],position['offsetZ'],position['offsetUnit'])
+            print keyPosition
+            dataDict[keyPosition] = {}
+            for aspect in position['aspects']:
+                keyAspect = aspect['name']
+                print keyAspect
+                dataDict[keyPosition][keyAspect] = {}
+                dataDict[keyPosition][keyAspect] = aspect
+
+        pp.pprint(dataDict)
+        dataDict[(0, 0, -1.0, u'm')]['average']['value']=10000
+        pp.pprint(dataDict)
 
     log.info('End of main exiting')
     sys.exit()
