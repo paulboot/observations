@@ -2,7 +2,9 @@
 	"observedProperty": "WaterGeleidendheid",
 	"locationSystemName": "HVH........",
 	"locationNameSpace": "moet op de MKK-DL altijd NL.RWS.wm zijn!!",
-	"positionAncorPoint": "GPSx,GPSy,GPSz",
+	"locationAncorPointLatitudeDD": 51.9775000,
+	"locationAncorPointLongitudeDD": 4.1333300,
+	"locationAncorPointHightm": 1.10,
 	"aspectSetType": "minimum|maximum",
 	"intervals":
 	[
@@ -177,7 +179,7 @@
 							"name": "average",
 							"quality": 15,
 							"uncertanty": null,
-							"value": 1.205
+							"value": 10.205
 						},
 						{
 							"name": "minimum",
@@ -216,7 +218,7 @@
 							"name": "average",
 							"quality": 15,
 							"uncertanty": null,
-							"value": 2.205
+							"value": 12.205
 						},
 						{
 							"name": "minimum",

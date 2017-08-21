@@ -21,7 +21,8 @@ import sys
 #from jinja2 import Environment, PackageLoader #@UnresolvedImport
 
 ##Dependencies
-# sudo apt-get install python-dnspython python-jinja2 python-paramiko
+# sudo apt-get install python-dnspython python-jinja2 python-paramiko python-dateutil
+# pip install python-dateutil
 
 ##Version and identification
 scriptVersion = '1.x (x-x-2017) by Paul Boot'
