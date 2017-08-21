@@ -131,11 +131,11 @@ def dict_def_rules():
     del rules[('private','local',10)]
 
     for key1,key2,key3 in rules:
-        print 'Key=' + key1 + ' ' + key2 + ' ' + str(key3)
+        print('Key=' + key1 + ' ' + key2 + ' ' + str(key3))
     print
 
     pp = pprint.PrettyPrinter(indent=3)
-    print "Rules definition"
+    print("Rules definition")
     pp.pprint(rules)
 
     return rules
@@ -172,17 +172,18 @@ if __name__ == '__main__':
         
         for position in data['positions']:
             pp.pprint(position)
-            keyPosition = (position['offsetX'],position['offsetY'],position['offsetZ'],position['offsetUnit'])
-            print keyPosition
+            keyPosition = (position['offsetX'],position['offsetY'],position['offsetZ'])
+            print(keyPosition)
             dataDict[keyPosition] = {}
+            dataDict[keyPosition]['offsetUnit'] = position['offsetUnit']
             for aspect in position['aspects']:
                 keyAspect = aspect['name']
-                print keyAspect
+                print(keyAspect)
                 dataDict[keyPosition][keyAspect] = {}
                 dataDict[keyPosition][keyAspect] = aspect
 
         pp.pprint(dataDict)
-        dataDict[(0, 0, -1.0, u'm')]['average']['value']=10000
+        dataDict[(0, 0, -1.0)]['average']['value']=10000
         pp.pprint(dataDict)
 
     log.info('End of main exiting')
