@@ -5,6 +5,8 @@
 #from config import *
 
 #Imports for generic parsing etc..
+from datetime import datetime
+import pytz
 import json
 import logging
 import time
@@ -22,7 +24,7 @@ import sys
 
 ##Dependencies
 # sudo apt-get install python-dnspython python-jinja2 python-paramiko python-dateutil
-# pip install python-dateutil
+# pip install python-dateutil pytz
 
 ##Version and identification
 scriptVersion = '1.x (x-x-2017) by Paul Boot'
@@ -193,7 +195,28 @@ if __name__ == '__main__':
         print(dataDict['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z'][(0, 0, -2.0)]['average']['value'])
 
         #fails because need to build back structure
-        print(json.dumps(dataDict, indent=4, sort_keys=True, ensure_ascii=False))
+        #print(json.dumps(dataDict, indent=4, sort_keys=True, ensure_ascii=False))
+        
+        #read data
+        filename='data/20170801/HVH25/TW10_2017_08_01'
+        try:
+            with open(filename, 'r') as f:
+                for line in f:
+                    print(line)
+                    dateStr, timeStr, seperatorStr, valueQualityStr = line.split()
+                    valueInt, qualityInt = [int(x) for x in valueQualityStr.split('/')]
+                    
+                    #Example 01-08-17 23:50:00
+                    #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
+                    datetimeObj = datetime.strptime(dateStr + ' ' + timeStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('utc'))
+                    print(datetimeObj.isoformat())
+
+        except IOError as e:
+            sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
+            
+
+
+            
         
     log.info('End of main exiting')
     sys.exit()
