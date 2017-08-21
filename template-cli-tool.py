@@ -192,6 +192,9 @@ if __name__ == '__main__':
         print(dataDict['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z'][(0, 0, -1.0)]['average']['value'])
         print(dataDict['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z'][(0, 0, -2.0)]['average']['value'])
 
+        #fails because need to build back structure
+        print(json.dumps(dataDict, indent=4, sort_keys=True, ensure_ascii=False))
+        
     log.info('End of main exiting')
     sys.exit()
 
