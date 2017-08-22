@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+import sys
+if sys.version_info < (3, 0):
+    sys.stdout.write("Sorry, requires Python 3.x, not Python 2.x\n")
+    sys.exit(1)
+
 #Import config settings here
 ##if file not exist echo use config-example.py
 #from config import *
@@ -15,7 +20,6 @@ import os
 import argparse
 import pprint
 import csv
-import sys
 
 #For network related tooling
 #import paramiko
@@ -198,26 +202,23 @@ if __name__ == '__main__':
         #print(json.dumps(dataDict, indent=4, sort_keys=True, ensure_ascii=False))
         
         #read data
+        #for-loop HVH25,HVH45,HVH90
         filename='data/20170801/HVH25/TW10_2017_08_01'
         try:
             with open(filename, 'r') as f:
                 for line in f:
-                    print(line)
                     dateStr, timeStr, seperatorStr, valueQualityStr = line.split()
                     valueInt, qualityInt = [int(x) for x in valueQualityStr.split('/')]
+                    valueFloat = float(valueInt/10)
                     
                     #Example 01-08-17 23:50:00
                     #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
-                    datetimeObj = datetime.strptime(dateStr + ' ' + timeStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('utc'))
-                    print(datetimeObj.isoformat())
+                    datetimeObj = datetime.strptime(dateStr + ' ' + timeStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('UTC'))
+                    print ('%s  Temperatuur is %r met Kwaliteit %i' % (datetimeObj.isoformat(), valueFloat, qualityInt))
 
         except IOError as e:
             sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
             
-
-
-            
-        
-    log.info('End of main exiting')
+    #log.info('End of main exiting')
     sys.exit()
 
