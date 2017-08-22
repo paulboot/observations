@@ -10,7 +10,7 @@ if sys.version_info < (3, 0):
 #from config import *
 
 #Imports for generic parsing etc..
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 import json
 import logging
@@ -202,6 +202,11 @@ if __name__ == '__main__':
         #print(json.dumps(dataDict, indent=4, sort_keys=True, ensure_ascii=False))
         
         #read data
+        datanewDict = {}
+        aspectStructure = {}
+        aspectStructure['WaterLevel'] = {}
+        aspectStructure['WaterLevel']['minset'] = ['average']
+
         #for-loop HVH25,HVH45,HVH90
         filename='data/20170801/HVH25/TW10_2017_08_01'
         try:
@@ -213,12 +218,29 @@ if __name__ == '__main__':
                     
                     #Example 01-08-17 23:50:00
                     #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
-                    datetimeObj = datetime.strptime(dateStr + ' ' + timeStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('UTC'))
-                    print ('%s  Temperatuur is %r met Kwaliteit %i' % (datetimeObj.isoformat(), valueFloat, qualityInt))
+                    phenomenonTime = datetime.strptime(dateStr + ' ' + timeStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('UTC'))
+                    print ('%s  Temperatuur is %r met Kwaliteit %i' % (phenomenonTime.isoformat(), valueFloat, qualityInt))
+                    
+                    #create interval
+                    startTime = phenomenonTime - timedelta(seconds=300)
+                    startTimeStr = startTime.isoformat()
+                    endTime = phenomenonTime + timedelta(seconds=299)
+                    endTimeStr = endTime.isoformat()
+                    datanewDict[startTimeStr,endTimeStr] = {}
+                    datanewDict[startTimeStr,endTimeStr]['phenomenonTime'] = phenomenonTime.isoformat()
+                    #create position
+                    datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)] = {}
+                    #loop through aspects
+                    for aspect in aspectStructure['WaterLevel']['minset']:
+                        if aspect == 'average':
+                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)]['average']['value'] = valueFloat
+                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)]['average']['quality'] = qualityInt
 
         except IOError as e:
             sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
-            
+        
+        print(datanewDict)
+        
     #log.info('End of main exiting')
     sys.exit()
 
