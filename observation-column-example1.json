@@ -4,21 +4,22 @@
 	"locationNameSpace": "moet op de MKK-DL altijd NL.RWS.wm zijn!!",
 	"locationAncorPointLatitudeDD": 51.9775000,
 	"locationAncorPointLongitudeDD": 4.1333300,
-	"locationAncorPointHightm": 1.10,
+	"locationAncorPointHeightm": 1.10,
 	"aspectSetType": "minimum|maximum",
-	"intervals":
+	"observations": 
 	[
 		{
 			"startTime": "2017-02-07T13:05:00Z",
 			"endTime": "2017-02-07T13:05:59Z",
 			"phenomenonTime": "2017-02-07T13:05:30Z",
-			"procedure":
+			"resultTime": "na",
+			"process": 
 			{
-				"creationType": "validation|sensor|forecast",
-				"creationName": "model name and run??|na",
-				"creationTime": "at-what-time-run?|na"
+				"type": "validation|sensor|forecast",
+				"intervalLength": "1min|10min |steek",
+				"name": "model name and run??|na"
 			},
-			"aspectMetaValues":
+			"aspectMetaValues": 
 			[
 				{
 					"name": "average",
@@ -46,14 +47,14 @@
 					"unit": "s"
 				}
 			],
-			"positions":
+			"positions": 
 			[
 				{
 					"offsetX": 0,
 					"offsetY": 0,
 					"offsetZ": -1.0,
 					"offsetUnit": "m",
-					"aspects":
+					"aspects": 
 					[
 						{
 							"name": "average",
@@ -92,7 +93,7 @@
 					"offsetY": 0,
 					"offsetZ": -2.0,
 					"offsetUnit": "m",
-					"aspects":
+					"aspects": 
 					[
 						{
 							"name": "average",
@@ -132,13 +133,13 @@
 			"startTime": "2017-02-07T13:06:00Z",
 			"endTime": "2017-02-07T13:06:59Z",
 			"phenomenonTime": "2017-02-07T13:06:30Z",
-			"procedure":
+			"procedure": 
 			{
 				"creationType": "validation|sensor|forecast",
 				"creationName": "model name and run??|na",
 				"creationTime": "at-what-time-run?|na"
 			},
-			"aspectMetaValues":
+			"aspectMetaValues": 
 			[
 				{
 					"name": "average",
@@ -166,14 +167,14 @@
 					"unit": "s"
 				}
 			],
-			"positions":
+			"positions": 
 			[
 				{
 					"offsetX": 0,
 					"offsetY": 0,
 					"offsetZ": -1.0,
 					"offsetUnit": "m",
-					"aspects":
+					"aspects": 
 					[
 						{
 							"name": "average",
@@ -212,7 +213,7 @@
 					"offsetY": 0,
 					"offsetZ": -2.0,
 					"offsetUnit": "m",
-					"aspects":
+					"aspects": 
 					[
 						{
 							"name": "average",
