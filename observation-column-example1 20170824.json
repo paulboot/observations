@@ -1,0 +1,270 @@
+{
+	"observedProperty": "WaterLevel",
+	"locationName": "HVH........",
+	"locationNameSpace": "moet op de MKK-DL altijd NL.RWS.wm zijn!!",
+	"locationAnchorPoint": 
+	{
+		"latitude": 51.9775000,
+		"longitude": 4.1333300,
+		"height": 1.10
+	},
+	"observations": 
+	[
+		{
+			"startTime": "2017-02-07T13:05:00Z",
+			"endTime": "2017-02-07T13:05:59Z",
+			"phenomenonTime": "2017-02-07T13:05:30Z",
+			"resultTime": "at-what-time-run?|na",
+			"process": 
+			{
+				"type": "validation|sensor|forecast",
+				"intervalLength": "1min|10min|steek",
+				"name": "model name and run??|na",
+				"aspectSet": "minimum|maximum|standard"
+			},
+			"aspectMetaValues": 
+			[
+				{
+					"name": "average",
+					"reference": "NAP",
+					"unit": "m"
+				},
+				{
+					"name": "minimum",
+					"reference": "NAP",
+					"unit": "m"
+				},
+				{
+					"name": "surface",
+					"reference": null,
+					"unit": "m2"
+				},
+				{
+					"name": "liveliness",
+					"reference": null,
+					"unit": "m"
+				},
+				{
+					"name": "peakDuration",
+					"reference": null,
+					"unit": "s"
+				}
+			],
+			"positions": 
+			[
+				{
+					"offset": 
+					{
+						"x": 0,
+						"y": 0,
+						"z": -1.0,
+						"unit": "m"
+					},
+					"aspects": 
+					[
+						{
+							"name": "average",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 1.205
+						},
+						{
+							"name": "minimum",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.012
+						},
+						{
+							"name": "surface",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 1.1
+						},
+						{
+							"name": "liveliness",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						},
+						{
+							"name": "peakDuration",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						}
+					]
+				},
+				{
+					"offset": 
+					{
+						"x": 0,
+						"y": 0,
+						"z": -2.0,
+						"unit": "m"
+					},
+					"aspects": 
+					[
+						{
+							"name": "average",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 1.205
+						},
+						{
+							"name": "minimum",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.012
+						},
+						{
+							"name": "surface",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 1.1
+						},
+						{
+							"name": "liveliness",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						},
+						{
+							"name": "peakDuration",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						}
+					]
+				}
+			]
+		},
+		{
+			"startTime": "2017-02-07T13:06:00Z",
+			"endTime": "2017-02-07T13:06:59Z",
+			"phenomenonTime": "2017-02-07T13:06:30Z",
+			"resultTime": "at-what-time-run?|na",
+			"process": 
+			{
+				"type": "validation|sensor|forecast",
+				"intervalLength": "1min|10min|steek",
+				"name": "model name and run??|na",
+				"aspectSet": "minimum|maximum|standard"
+			},
+			"aspectMetaValues": 
+			[
+				{
+					"name": "average",
+					"reference": "NAP",
+					"unit": "m"
+				},
+				{
+					"name": "minimum",
+					"reference": "NAP",
+					"unit": "m"
+				},
+				{
+					"name": "surface",
+					"reference": null,
+					"unit": "m2"
+				},
+				{
+					"name": "liveliness",
+					"reference": null,
+					"unit": "m"
+				},
+				{
+					"name": "peakDuration",
+					"reference": null,
+					"unit": "s"
+				}
+			],
+			"positions": 
+			[
+				{
+					"offset": 
+					{
+						"x": 0,
+						"y": 0,
+						"z": -1.0,
+						"unit": "m"
+					},
+					"aspects": 
+					[
+						{
+							"name": "average",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 10.205
+						},
+						{
+							"name": "minimum",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.012
+						},
+						{
+							"name": "surface",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 1.1
+						},
+						{
+							"name": "liveliness",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						},
+						{
+							"name": "peakDuration",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						}
+					]
+				},
+				{
+					"offset": 
+					{
+						"x": 0,
+						"y": 0,
+						"z": -2.0,
+						"unit": "m"
+					},
+					"aspects": 
+					[
+						{
+							"name": "average",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 12.205
+						},
+						{
+							"name": "minimum",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.012
+						},
+						{
+							"name": "surface",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 1.1
+						},
+						{
+							"name": "liveliness",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						},
+						{
+							"name": "peakDuration",
+							"quality": 15,
+							"uncertainty": null,
+							"value": 0.1
+						}
+					]
+				}
+			]
+		}
+	]
+}
