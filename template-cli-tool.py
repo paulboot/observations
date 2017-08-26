@@ -177,7 +177,7 @@ if __name__ == '__main__':
             pp = pprint.PrettyPrinter(indent=4)
             #pp.pprint(data)
         
-        for interval in data['intervals']:
+        for interval in data['observations']:
             keyInterval = (interval['startTime'],interval['endTime'])
             dataDict[keyInterval] = {}
             dataDict[keyInterval]['phenomenonTime'] = interval['phenomenonTime']
@@ -190,7 +190,7 @@ if __name__ == '__main__':
                     dataDict[keyInterval][keyPosition][keyAspect] = {}
                     dataDict[keyInterval][keyPosition][keyAspect] = aspect
 
-        #pp.pprint(dataDict)
+        pp.pprint(dataDict)
         
         #Example manipulation
         dataDict['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z'][(0, 0, -1.0)]['average']['value']=10000
@@ -208,20 +208,22 @@ if __name__ == '__main__':
         aspectStructure['WaterLevel']['minset'] = ['average']
 
         #for-loop HVH25,HVH45,HVH90
-        filename='data/20170801/HVH25/TW10_2017_08_01'
+        locationName='HVH25'
+        positionHight=-2.5
+        fileName='data/20170801/HVH25/TW10_2017_08_01'
         try:
-            with open(filename, 'r') as f:
+            with open(fileName, 'r') as f:
                 for line in f:
-                    dateStr, timeStr, seperatorStr, valueQualityStr = line.split()
+                    dateRMIStr, timeRMIStr, seperatorStr, valueQualityStr = line.split()
                     valueInt, qualityInt = [int(x) for x in valueQualityStr.split('/')]
                     valueFloat = float(valueInt/10)
                     
                     #Example 01-08-17 23:50:00
                     #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
-                    phenomenonTime = datetime.strptime(dateStr + ' ' + timeStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('UTC'))
-                    print ('%s  Temperatuur is %r met Kwaliteit %i' % (phenomenonTime.isoformat(), valueFloat, qualityInt))
+                    phenomenonTime = datetime.strptime(dateRMIStr + ' ' + timeRMIStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('UTC'))
+                    #print ('%s  Temperatuur is %r met Kwaliteit %i' % (phenomenonTime.isoformat(), valueFloat, qualityInt))
                     
-                    #create interval
+                    #create one observation
                     startTime = phenomenonTime - timedelta(seconds=300)
                     startTimeStr = startTime.isoformat()
                     endTime = phenomenonTime + timedelta(seconds=299)
@@ -229,17 +231,29 @@ if __name__ == '__main__':
                     datanewDict[startTimeStr,endTimeStr] = {}
                     datanewDict[startTimeStr,endTimeStr]['phenomenonTime'] = phenomenonTime.isoformat()
                     #create position
-                    datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)] = {}
-                    #loop through aspects
+                    datanewDict[startTimeStr,endTimeStr][(0,0,positionHight)] = {}
+                    #loop through aspects depending on aspect set
                     for aspect in aspectStructure['WaterLevel']['minset']:
                         if aspect == 'average':
-                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)]['average']['value'] = valueFloat
-                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)]['average']['quality'] = qualityInt
-
+                            #check if exists
+                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]={}
+                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['name'] = aspect
+                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['value'] = valueFloat
+                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['quality'] = qualityInt
+                            datanewDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['uncertainty'] = None
+                            
         except IOError as e:
             sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
         
-        print(datanewDict)
+        pp.pprint(datanewDict)
+        dataJasonDict={}
+
+        for observation in datanewDict:
+            startTimeStr, endTimeStr = observation
+            for position in observation:
+                position
+
+
         
     #log.info('End of main exiting')
     sys.exit()
