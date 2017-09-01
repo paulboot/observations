@@ -169,42 +169,47 @@ if __name__ == '__main__':
         pp.pprint(building)
     
     ##JSON demo
-    dataDict = {}
+    observations = {}
     jsonDemo = True
+    pp = pprint.PrettyPrinter(indent=4)
     if jsonDemo:
-        with open('observation-column-example1 20170824.json', 'r') as f:
+        with open('observation-column-example1 20170901.json', 'r') as f:
             dataJson = json.load(f)
-            pp = pprint.PrettyPrinter(indent=4)
-            #pp.pprint(dataJson)
-        
+            pp.pprint(dataJson)
+
         for observation in dataJson['observations']:
             keyObservation = observation['startTime'],observation['endTime']
-            dataDict[keyObservation] = {}
-            dataDict[keyObservation]['phenomenonTime'] = observation['phenomenonTime']
+            observations[keyObservation] = {}
+            observations[keyObservation]['phenomenonTime'] = observation['phenomenonTime']
             #ToDo Process Values
             #ToDo Aspect Meta Values
             for position in observation['positions']:
-                keyPosition = position['offset']['x'],position['offset']['y'],position['offset']['z']
-                dataDict[keyObservation][keyPosition] = {}
-                dataDict[keyObservation][keyPosition]['offset'] = {}
-                dataDict[keyObservation][keyPosition]['offset']['unit'] = position['offset']['unit']
+                keyPosition = (position['offset']['x'],position['offset']['y'],position['offset']['z'])
+                if 'positions' not in observations[keyObservation]:
+                    observations[keyObservation]['positions'] = {}
+                observations[keyObservation]['positions'][keyPosition] = {}
+                observations[keyObservation]['positions'][keyPosition]['offset'] = {}
+                observations[keyObservation]['positions'][keyPosition]['offset']['unit'] = position['offset']['unit']
                 for aspect in position['aspects']:
                     keyAspect = aspect['name']
-                    dataDict[keyObservation][keyPosition][keyAspect] = {}
-                    dataDict[keyObservation][keyPosition][keyAspect] = aspect
+                    if 'aspects' not in observations[keyObservation]['positions'][keyPosition]:
+                        observations[keyObservation]['positions'][keyPosition]['aspects'] = {}
+                    observations[keyObservation]['positions'][keyPosition]['aspects'][keyAspect] = {}
+                    observations[keyObservation]['positions'][keyPosition]['aspects'][keyAspect] = aspect
 
-        pp.pprint(dataDict)
+        pp.pprint(observations)
 
         #Example manipulation
-        dataDict['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z'][0, 0, -1.0]['average']['value']=10000
-        print(dataDict['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z'][0, 0, -1.0]['average']['value'])
-        print(dataDict['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z'][0, 0, -1.0]['average']['value'])
-        print(dataDict['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z'][0, 0, -2.0]['average']['value'])
+        observations['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value']=10000
+        observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -2.0)]['aspects']['average']['value']=50000
+        print(observations['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value'])
+        print(observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value'])
+        print(observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -2.0)]['aspects']['average']['value'])
 
         #fails because need to build back structure
         #print(json.dumps(dataDict, indent=4, sort_keys=True, ensure_ascii=False))
         
-        #read data from RMI exampe same dataDict stucture
+        #read data from RMI example same dataDict stucture
         dataDict = {}
         aspectStructure = {}
         aspectStructure['WaterLevel'] = {}
@@ -213,7 +218,7 @@ if __name__ == '__main__':
         #for-loop HVH25,HVH45,HVH90
         locationName='HVH25'
         positionHight=-2.5
-        fileName='data/20170801/HVH25/TW10_2017_08_01'
+        fileName='data/CSV/HVH25/TW10_2017_08_01'
         try:
             with open(fileName, 'r') as f:
                 for line in f:
