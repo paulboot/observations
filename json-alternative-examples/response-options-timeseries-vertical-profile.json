@@ -1,0 +1,534 @@
+{
+	"Option1.a": "Points have names, observations.points.aspects",
+	"(timeseries)": {
+		"quantity": "WaterGeleidendheid",
+		"location": {
+			"nameSpace": "NL.RWS.wm",
+			"name": " HVH........",
+			"referenceLevel": "NAP",
+			"geometry": {
+				"type": "MultiPoint",
+				"positions": [
+					{
+						"name": "pos1",
+						"coordinates": [
+							4.1333300, 51.9775000, 1.10
+						]
+					}, {
+						"name": "pos2",
+						"coordinates": [
+							4.1333300, 51.9775000, -0.90
+						]
+					}
+				]
+			}
+		},
+		"aspectsGroup": {
+			"groupName": "minimum|maximum",
+			"aspects": [
+				{
+					"name": "average",
+					"reference": "NAP",
+					"unit": "m"
+				}, {
+					"name": "minimum",
+					"reference": "NAP",
+					"unit": "m"
+				}, {
+					"name": "surface",
+					"reference": null,
+					"unit": "m2"
+				}, {
+					"name": "liveliness",
+					"reference": null,
+					"unit": "m"
+				}, {
+					"name": "peakDuration",
+					"reference": null,
+					"unit": "s"
+				}
+			]
+		},
+		"timeseriesType (Meas, comp, mixed => processes [] process { name = } optional": "TODO",
+		"process": {
+			"creationType": "validation|sensor|forecast",
+			"creationName": "model name and run??|na",
+			"creationTime": "at-what-time-run?|na"
+		},
+		"events": [
+			{
+				"timeStamp": "2017-02-07T13:05:30Z",
+				"startTime": "2017-02-07T13:05:00Z",
+				"endTime": "2017-02-07T13:05:59Z",
+				"positions": [
+					{
+						"position": "pos1",
+						"aspects": [
+							{
+								"name": "average",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 1.205
+							}, {
+								"name": "minimum",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.012
+							}, {
+								"name": "surface",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 1.1
+							}, {
+								"name": "liveliness",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}, {
+								"name": "peakDuration",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}
+						]
+					}, {
+						"position": "pos2",
+						"aspects": [
+							{
+								"name": "average",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 1.205
+							}, {
+								"name": "minimum",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.012
+							}, {
+								"name": "surface",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 1.1
+							}, {
+								"name": "liveliness",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}, {
+								"name": "peakDuration",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}
+						]
+					}
+				]
+			}, {
+				"timeStamp": "2017-02-07T13:06:30Z",
+				"startTime": "2017-02-07T13:06:00Z",
+				"endTime": "2017-02-07T13:06:59Z",
+				"positions": [
+					{
+						"position": "pos1",
+						"aspects": [
+							{
+								"name": "average",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 10.205
+							}, {
+								"name": "minimum",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.012
+							}, {
+								"name": "surface",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 1.1
+							}, {
+								"name": "liveliness",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}, {
+								"name": "peakDuration",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}
+						]
+					}, {
+						"position": "pos2",
+						"aspects": [
+							{
+								"name": "average",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 12.205
+							}, {
+								"name": "minimum",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.012
+							}, {
+								"name": "surface",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 1.1
+							}, {
+								"name": "liveliness",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}, {
+								"name": "peakDuration",
+								"quality": 15,
+								"uncertanty": null,
+								"value": 0.1
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"Option1.b": "Points have names, observations.aspects.points",
+	"(timeseries)": {
+		"quantity": "WaterGeleidendheid",
+		"location": {
+			"nameSpace": "NL.RWS.wm",
+			"name": " HVH........",
+			"referenceLevel": "NAP",
+			"geometry": {
+				"type": "MultiPoint",
+				"positions": [
+					{
+						"name": "pos1",
+						"coordinates": [
+							4.1333300, 51.9775000, 1.10
+						]
+					}, {
+						"name": "pos2",
+						"coordinates": [
+							4.1333300, 51.9775000, -0.90
+						]
+					}
+				]
+			}
+		},
+		"aspectsGroup": {
+			"groupName": "minimum|maximum",
+			"aspects": [
+				{
+					"name": "average",
+					"reference": "NAP",
+					"unit": "m"
+				}, {
+					"name": "minimum",
+					"reference": "NAP",
+					"unit": "m"
+				}, {
+					"name": "surface",
+					"reference": null,
+					"unit": "m2"
+				}, {
+					"name": "liveliness",
+					"reference": null,
+					"unit": "m"
+				}, {
+					"name": "peakDuration",
+					"reference": null,
+					"unit": "s"
+				}
+			]
+		},
+		"timeseriesType (Meas, comp, mixed => processes [] process { name = } optional": "TODO",
+		"process": {
+			"creationType": "validation|sensor|forecast",
+			"creationName": "model name and run??|na",
+			"creationTime": "at-what-time-run?|na"
+		},
+		"events": [
+			{
+				"timeStamp": "2017-02-07T13:05:30Z",
+				"startTime": "2017-02-07T13:05:00Z",
+				"endTime": "2017-02-07T13:05:59Z",
+				"aspects": [
+					{
+						"name": "average",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 1.4
+							}, {
+								"position": "pos1",
+								"value": 1.5
+							}
+						]
+					}, {
+						"name": "minimum",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 1.1
+							}, {
+								"position": "pos1",
+								"value": 1.2
+							}
+						]
+					}, {
+						"name": "surface",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 0.012
+							}, {
+								"position": "pos1",
+								"value": 0.013
+							}
+						]
+					}, {
+						"name": "liveliness",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 0.012
+							}, {
+								"position": "pos1",
+								"value": 0.013
+							}
+						]
+					}, {
+						"name": "peakDuration",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 0.012
+							}, {
+								"position": "pos1",
+								"value": 0.013
+							}
+						]
+					}
+				]
+			}, {
+				"timeStamp": "2017-02-07T13:06:30Z",
+				"startTime": "2017-02-07T13:06:00Z",
+				"endTime": "2017-02-07T13:06:59Z",
+				"aspects": [
+					{
+						"name": "average",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 1.4
+							}, {
+								"position": "pos1",
+								"value": 1.5
+							}
+						]
+					}, {
+						"name": "minimum",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 1.1
+							}, {
+								"position": "pos1",
+								"value": 1.2
+							}
+						]
+					}, {
+						"name": "surface",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 0.012
+							}, {
+								"position": "pos1",
+								"value": 0.013
+							}
+						]
+					}, {
+						"name": "liveliness",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 0.012
+							}, {
+								"position": "pos1",
+								"value": 0.013
+							}
+						]
+					}, {
+						"name": "peakDuration",
+						"quality": 15,
+						"uncertanty": null,
+						"positions": [
+							{
+								"position": "pos1",
+								"value": 0.012
+							}, {
+								"position": "pos1",
+								"value": 0.013
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"Option2": "No point names but array of points, observations.aspects.valuesArray",
+	"(timeseries)": {
+		"quantity": "WaterGeleidendheid",
+		"location": {
+			"nameSpace": "NL.RWS.wm",
+			"name": " HVH........",
+			"referenceLevel": "NAP",
+			"geometry": {
+				"type": "MultiPoint",
+				"positions": [
+					{
+						"name": "pos1",
+						"coordinates": [
+							4.1333300, 51.9775000, 1.10
+						]
+					}, {
+						"name": "pos2",
+						"coordinates": [
+							4.1333300, 51.9775000, -0.90
+						]
+					}, {
+						"name": "pos3",
+						"coordinates": [
+							4.1333300, 51.9775000, -0.90
+						]
+					}, {
+						"name": "pos4",
+						"coordinates": [
+							4.1333300, 51.9775000, -0.90
+						]
+					}
+				]
+			}
+		},
+		"aspectsGroup": {
+			"groupName": "minimum|maximum",
+			"aspects": [
+				{
+					"name": "average",
+					"reference": "NAP",
+					"unit": "m"
+				}, {
+					"name": "minimum",
+					"reference": "NAP",
+					"unit": "m"
+				}, {
+					"name": "surface",
+					"reference": null,
+					"unit": "m2"
+				}, {
+					"name": "liveliness",
+					"reference": null,
+					"unit": "m"
+				}, {
+					"name": "peakDuration",
+					"reference": null,
+					"unit": "s"
+				}
+			]
+		},
+		"timeseriesType (Meas, comp, mixed => processes [] process { name = } optional": "TODO",
+		"process": {
+			"creationType": "validation|sensor|forecast",
+			"creationName": "model name and run??|na",
+			"creationTime": "at-what-time-run?|na"
+		},
+		"events": [
+			{
+				"timeStamp": "2017-02-07T13:05:30Z",
+				"startTime": "2017-02-07T13:05:00Z",
+				"endTime": "2017-02-07T13:05:59Z",
+				"aspects": [
+					{
+						"name": "average",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "minimum",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "surface",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "liveliness",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "peakDuration",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}
+				]
+			}, {
+				"timeStamp": "2017-02-07T13:06:30Z",
+				"startTime": "2017-02-07T13:06:00Z",
+				"endTime": "2017-02-07T13:06:59Z",
+				"aspects": [
+					{
+						"name": "average",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "minimum",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "surface",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "liveliness",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}, {
+						"name": "peakDuration",
+						"quality": 15,
+						"uncertanty": null,
+						"values": [ 1.4, 1.5, 1.6, 1.7 ]
+					}
+				]
+			}
+		]
+	}
+}

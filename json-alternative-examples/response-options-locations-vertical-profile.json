@@ -1,0 +1,66 @@
+{
+	"Option1": "Fixed vertical level, points have names",
+	"(location)": {
+		"nameSpace": "NL.RWS.wm",
+		"name": " HVH........",
+		"referenceLevel": "NAP",
+		"geometry": {
+			"type": "MultiPoint",
+			"positions": [
+				{
+					"name": "pos1",
+					"coordinates": [
+						4.1333300, 51.9775000, 1.10
+					]
+				}, {
+					"name": "pos2",
+					"coordinates": [
+						4.1333300, 51.9775000, -0.90
+					]
+				}
+			]
+		}
+	},
+	"Option1, other example": "Vertical level relative to water service, points have names",
+	"location": {
+		"nameSpace": "NL.RWS.wm",
+		"name": " HVH........",
+		"referenceLevel": "WaterSurface",
+		"geometry": {
+			"type": "MultiPoint",
+			"positions": [
+				{
+					"name": "pos1",
+					"coordinates": [
+						4.1333300, 51.9775000, 0
+					]
+				}, {
+					"name": "pos2",
+					"coordinates": [
+						4.1333300, 51.9775000, -0.5
+					]
+				}
+			]
+		}
+	},
+	"EXAMPLE": "Vertical level relative to water service, no point names but array of points",
+	"location": {
+		"nameSpace": "NL.RWS.wm",
+		"name": " HVH........",
+		"referenceLevel": "WaterSurface",
+		"geometry": {
+			"type": "MultiPoint",
+			"coordinates": [
+				[
+					4.1333300, 51.9775000, 0
+				], [
+					4.1333300, 51.9775000, -0.5
+				], [
+					4.1333300, 51.9775000, -1.0
+				], [
+					4.1333300, 51.9775000, -1.5
+				]
+			]
+		}
+	}
+}
