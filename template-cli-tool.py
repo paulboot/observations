@@ -175,7 +175,7 @@ if __name__ == '__main__':
     if jsonDemo:
         with open('observation-column-example1 20170901.json', 'r') as f:
             dataJson = json.load(f)
-            pp.pprint(dataJson)
+            #pp.pprint(dataJson)
 
         for observation in dataJson['observations']:
             keyObservation = observation['startTime'],observation['endTime']
@@ -197,7 +197,7 @@ if __name__ == '__main__':
                     observations[keyObservation]['positions'][keyPosition]['aspects'][keyAspect] = {}
                     observations[keyObservation]['positions'][keyPosition]['aspects'][keyAspect] = aspect
 
-        pp.pprint(observations)
+        #pp.pprint(observations)
 
         #Example manipulation
         observations['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value']=10000
@@ -207,10 +207,10 @@ if __name__ == '__main__':
         print(observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -2.0)]['aspects']['average']['value'])
 
         #fails because need to build back structure
-        #print(json.dumps(dataDict, indent=4, sort_keys=True, ensure_ascii=False))
+        #print(json.dumps(observations, indent=4, sort_keys=True, ensure_ascii=False))
         
-        #read data from RMI example same dataDict stucture
-        dataDict = {}
+        #read data from RMI example same observations stucture
+        observations = {}
         aspectStructure = {}
         aspectStructure['WaterLevel'] = {}
         aspectStructure['WaterLevel']['minset'] = ['average']
@@ -233,43 +233,71 @@ if __name__ == '__main__':
                     
                     #create one observation
                     startTime = phenomenonTime - timedelta(seconds=300)
-                    startTimeStr = startTime.isoformat()
                     endTime = phenomenonTime + timedelta(seconds=299)
-                    endTimeStr = endTime.isoformat()
-                    dataDict[startTimeStr,endTimeStr] = {}
-                    dataDict[startTimeStr,endTimeStr]['phenomenonTime'] = phenomenonTime.isoformat()
+                    keyObservation = startTime.isoformat(), endTime.isoformat()
+                    if keyObservation not in observations:
+                        observations[keyObservation] = {}
+                        observations[keyObservation]['phenomenonTime'] = phenomenonTime.isoformat()
                     #create position
-                    dataDict[startTimeStr,endTimeStr][(0,0,positionHight)] = {}
+                    if 'positions' not in observations[keyObservation]:
+                        observations[keyObservation]['positions'] = {}
+                    observations[keyObservation]['positions'][(0,0,positionHight)] = {}
                     #create offset
-                    dataDict[startTimeStr,endTimeStr][(0,0,positionHight)]['offset'] = {}
-                    dataDict[startTimeStr,endTimeStr][(0,0,positionHight)]['offset']['unit'] = 'm'
+                    if 'offset'not in observations[keyObservation]['positions'][(0,0,positionHight)]:
+                        observations[keyObservation]['positions'][(0,0,positionHight)]['offset'] = {}
+                    observations[keyObservation]['positions'][(0,0,positionHight)]['offset'] = {}
+                    observations[keyObservation]['positions'][(0,0,positionHight)]['offset']['unit'] = 'm'
                     #loop through aspects depending on aspect set
                     for aspect in aspectStructure['WaterLevel']['minset']:
                         if aspect == 'average':
                             #check if exists
-                            dataDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]={}
-                            dataDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['name'] = aspect
-                            dataDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['value'] = valueFloat
-                            dataDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['quality'] = qualityInt
-                            dataDict[startTimeStr,endTimeStr][(0,0,-2.5)][aspect]['uncertainty'] = None
+                            if 'aspects' not in observations[keyObservation]['positions'][(0,0,positionHight)]:
+                                observations[keyObservation]['positions'][(0,0,positionHight)]['aspects'] = {}
+                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['name'] = aspect
+                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['value'] = valueFloat
+                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['quality'] = qualityInt
+                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['uncertainty'] = None
                             
         except IOError as e:
             sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
         
-        pp.pprint(dataDict)
-        sys.exit()
+        #pp.pprint(observations)
+
         
         dataJsonDict={}
-        dataJsonDict['observations']=[]
-        for keyObservation in dataDict:
+        #TODO fill in symple things
+        dataJsonDict['observations'] = []
+        for keyObservation in observations:
             startTimeStr, endTimeStr = keyObservation
             dataJsonDict['observations'].append({})
-            for keyPosition in dataDict[startTimeStr,endTimeStr]:
+            dataJsonDict['observations'][-1]['startTime'] = startTimeStr
+            dataJsonDict['observations'][-1]['endTime'] = endTimeStr
+            dataJsonDict['observations'][-1]['phenomenonTime'] = observations[keyObservation]['phenomenonTime']
+            
+            for keyPosition in observations[keyObservation]['positions']:
                 positionOffsetX, positionOffsetY, positionOffsetZ = keyPosition
-                positionOffsetUnit = dataDict[startTimeStr,endTimeStr][positionOffsetX,positionOffsetY,positionOffsetZ]['offset']['unit']
-                for keyAspect in dataDict[startTimeStr,endTimeStr][positionOffsetX,positionOffsetY,positionOffsetZ]:
-                    #ToDo
-                    sys.exit()
+                dataJsonDict['observations'][-1]['positions'] = []
+                dataJsonDict['observations'][-1]['positions'].append({})
+                dataJsonDict['observations'][-1]['positions'][-1]['offset'] = {}
+                dataJsonDict['observations'][-1]['positions'][-1]['offset']['x'] = positionOffsetX
+                dataJsonDict['observations'][-1]['positions'][-1]['offset']['y'] = positionOffsetY
+                dataJsonDict['observations'][-1]['positions'][-1]['offset']['z'] = positionOffsetZ
+                dataJsonDict['observations'][-1]['positions'][-1]['offset']['unit'] = observations[keyObservation]['positions'][keyPosition]['offset']['unit']
+                for keyAspect in observations[keyObservation]['positions'][keyPosition]:
+                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'] = []
+                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'].append({})
+                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'][-1]['name'] = keyAspect
+                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'][-1]['value'] = observations[keyObservation]['positions'][keyPosition]['aspects']['value']
+                    
+                    
+        #pp.pprint(dataJsonDict)
+        #sys.exit()
+
+        
+        
+        print(json.dumps(dataJsonDict, indent=4, sort_keys=True, ensure_ascii=False))
+        sys.exit()
+        
 
 
         
