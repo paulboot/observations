@@ -216,52 +216,55 @@ if __name__ == '__main__':
         aspectStructure['WaterLevel']['minset'] = ['average']
 
         #for-loop HVH25,HVH45,HVH90
-        locationName='HVH25'
+        locationNames= ['HVH25','HVH45','HVH90']
         positionHight=-2.5
-        fileName='data/CSV/HVH25/TW10_2017_08_01'
-        try:
-            with open(fileName, 'r') as f:
-                for line in f:
-                    dateRMIStr, timeRMIStr, seperatorStr, valueQualityStr = line.split()
-                    valueInt, qualityInt = [int(x) for x in valueQualityStr.split('/')]
-                    valueFloat = float(valueInt/10)
-                    
-                    #Example 01-08-17 23:50:00
-                    #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
-                    phenomenonTime = datetime.strptime(dateRMIStr + ' ' + timeRMIStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('UTC'))
-                    #print ('%s  Temperatuur is %r met Kwaliteit %i' % (phenomenonTime.isoformat(), valueFloat, qualityInt))
-                    
-                    #create one observation
-                    startTime = phenomenonTime - timedelta(seconds=300)
-                    endTime = phenomenonTime + timedelta(seconds=299)
-                    keyObservation = startTime.isoformat(), endTime.isoformat()
-                    if keyObservation not in observations:
-                        observations[keyObservation] = {}
-                        observations[keyObservation]['phenomenonTime'] = phenomenonTime.isoformat()
-                    #create position
-                    if 'positions' not in observations[keyObservation]:
-                        observations[keyObservation]['positions'] = {}
-                    observations[keyObservation]['positions'][(0,0,positionHight)] = {}
-                    #create offset
-                    if 'offset'not in observations[keyObservation]['positions'][(0,0,positionHight)]:
-                        observations[keyObservation]['positions'][(0,0,positionHight)]['offset'] = {}
-                    observations[keyObservation]['positions'][(0,0,positionHight)]['offset'] = {}
-                    observations[keyObservation]['positions'][(0,0,positionHight)]['offset']['unit'] = 'm'
-                    #loop through aspects depending on aspect set
-                    for aspect in aspectStructure['WaterLevel']['minset']:
-                        if aspect == 'average':
-                            #check if exists
-                            if 'aspects' not in observations[keyObservation]['positions'][(0,0,positionHight)]:
-                                observations[keyObservation]['positions'][(0,0,positionHight)]['aspects'] = {}
-                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['name'] = aspect
-                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['value'] = valueFloat
-                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['quality'] = qualityInt
-                            observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['uncertainty'] = None
-                            
-        except IOError as e:
-            sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
+        filePath='data/CSV'
+        fileName='TW10_2017_08_01'
+        for locationName in locationNames:
+            try:
+                with open(filePath + '/' + locationName + '/' + fileName, 'r') as f:
+                    print(filePath + '/' + locationName + '/' + fileName)
+                    for line in f:
+                        dateRMIStr, timeRMIStr, seperatorStr, valueQualityStr = line.split()
+                        valueInt, qualityInt = [int(x) for x in valueQualityStr.split('/')]
+                        valueFloat = float(valueInt/10)
+                        
+                        #Example 01-08-17 23:50:00
+                        #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
+                        phenomenonTime = datetime.strptime(dateRMIStr + ' ' + timeRMIStr + ' +0100', '%d-%m-%y %H:%M:%S %z').astimezone(pytz.timezone('UTC'))
+                        #print ('%s  Temperatuur is %r met Kwaliteit %i' % (phenomenonTime.isoformat(), valueFloat, qualityInt))
+                        
+                        #create one observation
+                        startTime = phenomenonTime - timedelta(seconds=300)
+                        endTime = phenomenonTime + timedelta(seconds=299)
+                        keyObservation = startTime.isoformat(), endTime.isoformat()
+                        if keyObservation not in observations:
+                            observations[keyObservation] = {}
+                            observations[keyObservation]['phenomenonTime'] = phenomenonTime.isoformat()
+                        #create position
+                        if 'positions' not in observations[keyObservation]:
+                            observations[keyObservation]['positions'] = {}
+                            observations[keyObservation]['positions'][(0,0,positionHight)] = {}
+                        #create offset
+                        if 'offset'not in observations[keyObservation]['positions'][(0,0,positionHight)]:
+                            observations[keyObservation]['positions'][(0,0,positionHight)]['offset'] = {}
+                            observations[keyObservation]['positions'][(0,0,positionHight)]['offset']['unit'] = 'm'
+                        #loop through aspects depending on aspect set
+                        for aspect in aspectStructure['WaterLevel']['minset']:
+                            if aspect == 'average':
+                                #check if exists
+                                if 'aspects' not in observations[keyObservation]['positions'][(0,0,positionHight)]:
+                                    observations[keyObservation]['positions'][(0,0,positionHight)]['aspects'] = {}
+                                observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['name'] = aspect
+                                observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['value'] = valueFloat
+                                observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['quality'] = qualityInt
+                                observations[keyObservation]['positions'][(0,0,positionHight)]['aspects']['uncertainty'] = None
+                                
+            except IOError as e:
+                sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
         
         #pp.pprint(observations)
+        sys.exit()
 
         
         dataJsonDict={}
