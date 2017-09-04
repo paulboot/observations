@@ -200,11 +200,11 @@ if __name__ == '__main__':
         #pp.pprint(observations)
 
         #Example manipulation
-        observations['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value']=10000
-        observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -2.0)]['aspects']['average']['value']=50000
-        print(observations['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value'])
-        print(observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value'])
-        print(observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -2.0)]['aspects']['average']['value'])
+        #observations['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value']=10000
+        #observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -2.0)]['aspects']['average']['value']=50000
+        #print(observations['2017-02-07T13:05:00Z','2017-02-07T13:05:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value'])
+        #print(observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -1.0)]['aspects']['average']['value'])
+        #print(observations['2017-02-07T13:06:00Z','2017-02-07T13:06:59Z']['positions'][(0, 0, -2.0)]['aspects']['average']['value'])
 
         #fails because need to build back structure
         #print(json.dumps(observations, indent=4, sort_keys=True, ensure_ascii=False))
@@ -216,14 +216,17 @@ if __name__ == '__main__':
         aspectStructure['WaterLevel']['minset'] = ['average']
 
         #for-loop HVH25,HVH45,HVH90
-        locationNames= ['HVH25','HVH45','HVH90']
-        positionHight=-2.5
+        locationNames = {}
+        locationNames['HVH25'], locationNames['HVH45'], locationNames['HVH90'] = {},{},{}
+        locationNames['HVH25']['hight'] = -2.5
+        locationNames['HVH45']['hight'] = -4.5
+        locationNames['HVH90']['hight'] = -9.0
         filePath='data/CSV'
         fileName='TW10_2017_08_01'
         for locationName in locationNames:
+            positionHight = locationNames[locationName]['hight']
             try:
                 with open(filePath + '/' + locationName + '/' + fileName, 'r') as f:
-                    print(filePath + '/' + locationName + '/' + fileName)
                     for line in f:
                         dateRMIStr, timeRMIStr, seperatorStr, valueQualityStr = line.split()
                         valueInt, qualityInt = [int(x) for x in valueQualityStr.split('/')]
@@ -244,9 +247,9 @@ if __name__ == '__main__':
                         #create position
                         if 'positions' not in observations[keyObservation]:
                             observations[keyObservation]['positions'] = {}
-                            observations[keyObservation]['positions'][(0,0,positionHight)] = {}
+                        observations[keyObservation]['positions'][(0,0,positionHight)] = {}
                         #create offset
-                        if 'offset'not in observations[keyObservation]['positions'][(0,0,positionHight)]:
+                        if 'offset' not in observations[keyObservation]['positions'][(0,0,positionHight)]:
                             observations[keyObservation]['positions'][(0,0,positionHight)]['offset'] = {}
                             observations[keyObservation]['positions'][(0,0,positionHight)]['offset']['unit'] = 'm'
                         #loop through aspects depending on aspect set
@@ -264,7 +267,7 @@ if __name__ == '__main__':
                 sys.exit('file %s, mode %s: %s' % (filename, f.mode, e))
         
         #pp.pprint(observations)
-        sys.exit()
+        #sys.exit()
 
         
         dataJsonDict={}
@@ -276,10 +279,10 @@ if __name__ == '__main__':
             dataJsonDict['observations'][-1]['startTime'] = startTimeStr
             dataJsonDict['observations'][-1]['endTime'] = endTimeStr
             dataJsonDict['observations'][-1]['phenomenonTime'] = observations[keyObservation]['phenomenonTime']
-            
             for keyPosition in observations[keyObservation]['positions']:
                 positionOffsetX, positionOffsetY, positionOffsetZ = keyPosition
-                dataJsonDict['observations'][-1]['positions'] = []
+                if 'positions' not in dataJsonDict['observations'][-1]:
+                    dataJsonDict['observations'][-1]['positions'] = []
                 dataJsonDict['observations'][-1]['positions'].append({})
                 dataJsonDict['observations'][-1]['positions'][-1]['offset'] = {}
                 dataJsonDict['observations'][-1]['positions'][-1]['offset']['x'] = positionOffsetX
@@ -287,19 +290,20 @@ if __name__ == '__main__':
                 dataJsonDict['observations'][-1]['positions'][-1]['offset']['z'] = positionOffsetZ
                 dataJsonDict['observations'][-1]['positions'][-1]['offset']['unit'] = observations[keyObservation]['positions'][keyPosition]['offset']['unit']
                 for keyAspect in observations[keyObservation]['positions'][keyPosition]:
-                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'] = []
-                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'].append({})
-                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'][-1]['name'] = keyAspect
-                    dataJsonDict['observations'][-1]['positions'][-1]['aspects'][-1]['value'] = observations[keyObservation]['positions'][keyPosition]['aspects']['value']
-                    
+                    if keyAspect == 'aspects':
+                        if 'aspects' not in dataJsonDict['observations'][-1]['positions'][-1]:
+                            dataJsonDict['observations'][-1]['positions'][-1]['aspects'] = []
+                        dataJsonDict['observations'][-1]['positions'][-1]['aspects'].append({})
+                        dataJsonDict['observations'][-1]['positions'][-1]['aspects'][-1]['name'] = keyAspect
+                        dataJsonDict['observations'][-1]['positions'][-1]['aspects'][-1]['value'] = observations[keyObservation]['positions'][keyPosition]['aspects']['value']
+                        dataJsonDict['observations'][-1]['positions'][-1]['aspects'][-1]['quality'] = observations[keyObservation]['positions'][keyPosition]['aspects']['quality']
+                        
                     
         #pp.pprint(dataJsonDict)
         #sys.exit()
-
         
         
-        print(json.dumps(dataJsonDict, indent=4, sort_keys=True, ensure_ascii=False))
-        sys.exit()
+        print(json.dumps(dataJsonDict, indent=4, ensure_ascii=False))
         
 
 
