@@ -1,249 +1,252 @@
-/*WaterLevelAverageLivelinessWaterTemperatureAverageElectricalConductanceshouldbeWaterElectricalConductancethiswillbeintwofieldsAverageWaterSpeedWaterDirectionNIETdit/dd/observations/locations/HVH/observedproperties/waterlevel/process/{
-	waarneming|verwachting|astro
-}/intervallength/10min/aspectset/standard/ts1/{
-	datumtijd
-}/ts2/{
-	datumtijd
-}WELdit/dd/observations/locations/Maasmond.HoekVanHolland/observedproperties/WaterLevel/{
-	/ts1/{
-		datumtijd
-	}/ts2/{
-		datumtijd
-	}?intervallength=10min&aspectset=standard&processname={
-		measurements|forecasts|astronomical
-	}*/{
-		"observedProperty": "WaterLevel",
-		"locationName": "Amstrdam-Rijnkanaal.Utrechtpand.Maarssen.Oostkanaaldijk",
-		"locationNameSpace": "NL.RWS.WM",
-		"locationAnchorPoint": {
-			"latitude": 51.9775000,
-			"longitude": 4.1333300,
-			"altitude": 1.10,
-			"altitudeUnit": "m",
-			"crs": "ETRS89"
-		},
-		"observations": [{
-			"startTime": "2017-02-07T13:05:00Z",
-			"endTime": "2017-02-07T13:05:59Z",
-			"phenomenonTime": "2017-02-07T13:05:30Z",
-			"resultTime": "2017-02-07T13:06:06Z",
-			//processstaatopditlevelomdatwelatermetingenen//verwachtingeninhetzelfdeantwoordkunnengeven"process": {
-				"intervalLength": "1min|10min|sample",
-				"name": "measurment|forecast|astronomical",
-				"aspectSet": "minimum|maximum|standard"
-			},
-			"aspectMetaValues": [{
-				"name": "average",
-				"reference": "NAP",
-				"unit": "m"
-			},
-			{
-				"name": "minimum",
-				"reference": "NAP",
-				"unit": "m"
-			},
-			{
-				"name": "surface",
-				"reference": null,
-				"unit": "m2"
-			},
-			{
-				"name": "liveliness",
-				"reference": null,
-				"unit": "m"
-			},
-			{
-				"name": "peakDuration",
-				"reference": null,
-				"unit": "s"
-			}],
-			"positions": [{
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": -1.0,
-					"unit": "m"
-				},
-				"aspects": [{
-					"name": "average",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 1.205
-				},
-				{
-					"name": "minimum",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.012
-				},
-				{
-					"name": "surface",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 1.1
-				},
-				{
-					"name": "liveliness",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				},
-				{
-					"name": "peakDuration",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				}]
-			},
-			{
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": -2.0,
-					"unit": "m"
-				},
-				"aspects": [{
-					"name": "average",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 1.205
-				},
-				{
-					"name": "minimum",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.012
-				},
-				{
-					"name": "surface",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 1.1
-				},
-				{
-					"name": "liveliness",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				},
-				{
-					"name": "peakDuration",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				}]
-			}]
-		},
-		{
-			"startTime": "2017-02-07T13:06:00Z",
-			"endTime": "2017-02-07T13:06:59Z",
-			"phenomenonTime": "2017-02-07T13:06:30Z",
-			"resultTime": "2017-02-07T13:07:08Z",
-			"process": {
-				"intervalLength": "1min|10min|sample",
-				"name": "measurment|forecast|astronomical",
-				"aspectSet": "minimum|maximum|standard"
-			},
-			"aspectMetaValues": [{
-				"name": "average",
-				"reference": "NAP",
-				"unit": "m"
-			},
-			{
-				"name": "minimum",
-				"reference": "NAP",
-				"unit": "m"
-			},
-			{
-				"name": "surface",
-				"reference": null,
-				"unit": "m2"
-			},
-			{
-				"name": "liveliness",
-				"reference": null,
-				"unit": "m"
-			},
-			{
-				"name": "peakDuration",
-				"reference": null,
-				"unit": "s"
-			}],
-			"positions": [{
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": -1.0,
-					"unit": "m"
-				},
-				"aspects": [{
-					"name": "average",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 10.205
-				},
-				{
-					"name": "minimum",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.012
-				},
-				{
-					"name": "surface",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 1.1
-				},
-				{
-					"name": "liveliness",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				},
-				{
-					"name": "peakDuration",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				}]
-			},
-			{
-				"offset": {
-					"x": 0,
-					"y": 0,
-					"z": -2.0,
-					"unit": "m"
-				},
-				"aspects": [{
-					"name": "average",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 12.205
-				},
-				{
-					"name": "minimum",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.012
-				},
-				{
-					"name": "surface",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 1.1
-				},
-				{
-					"name": "liveliness",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				},
-				{
-					"name": "peakDuration",
-					"quality": 15,
-					"uncertainty": null,
-					"value": 0.1
-				}]
-			}]
-		}]
-	}
+/*
+WaterLevel
+	Average
+	Liveliness
+WaterTemperature
+	Average
+ElectricalConductance   should be WaterElectricalConductance this will be in two fields
+	Average
+WaterSpeed
+WaterDirection
+NIET dit
+/dd/observations/locations/HVH/observedproperties/waterlevel/process/{waarneming|verwachting|astro}/intervallength/10min/aspectset/standard/ts1/{datumtijd}/ts2/{datumtijd}
+WEL dit
+/dd/observations/locations/Maasmond.HoekVanHolland/observedproperties/WaterLevel/{/ts1/{datumtijd}/ts2/{datumtijd}? intervallength=10min & aspectset=standard & processname= {measurements|forecasts|astronomical}
+*/
+
+{
+    "observedProperty": "WaterLevel",
+    "locationName": "Amstrdam-Rijnkanaal.Utrechtpand.Maarssen.Oostkanaaldijk",
+    "locationNameSpace": "NL.RWS.WM",
+    "locationAnchorPoint": {
+        "latitude": 51.9775000,
+        "longitude": 4.1333300,
+        "altitude": 1.10,
+        "altitudeUnit": "m",
+        "crs": "ETRS89"
+    },
+    "observations": [{
+        "startTime": "2017-02-07T13:05:00Z",
+        "endTime": "2017-02-07T13:05:59Z",
+        "phenomenonTime": "2017-02-07T13:05:30Z",
+        "resultTime": "2017-02-07T13:06:06Z",
+        //processstaatopditlevelomdatwelatermetingenen//verwachtingeninhetzelfdeantwoordkunnengeven"process": {
+            "intervalLength": "1min|10min|sample",
+            "name": "measurment|forecast|astronomical",
+            "aspectSet": "minimum|maximum|standard"
+        },
+        "aspectMetaValues": [{
+            "name": "average",
+            "reference": "NAP",
+            "unit": "m"
+        },
+        {
+            "name": "minimum",
+            "reference": "NAP",
+            "unit": "m"
+        },
+        {
+            "name": "surface",
+            "reference": null,
+            "unit": "m2"
+        },
+        {
+            "name": "liveliness",
+            "reference": null,
+            "unit": "m"
+        },
+        {
+            "name": "peakDuration",
+            "reference": null,
+            "unit": "s"
+        }],
+        "positions": [{
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": -1.0,
+                "unit": "m"
+            },
+            "aspects": [{
+                "name": "average",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 1.205
+            },
+            {
+                "name": "minimum",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.012
+            },
+            {
+                "name": "surface",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 1.1
+            },
+            {
+                "name": "liveliness",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            },
+            {
+                "name": "peakDuration",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            }]
+        },
+        {
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": -2.0,
+                "unit": "m"
+            },
+            "aspects": [{
+                "name": "average",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 1.205
+            },
+            {
+                "name": "minimum",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.012
+            },
+            {
+                "name": "surface",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 1.1
+            },
+            {
+                "name": "liveliness",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            },
+            {
+                "name": "peakDuration",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            }]
+        }]
+    },
+    {
+        "startTime": "2017-02-07T13:06:00Z",
+        "endTime": "2017-02-07T13:06:59Z",
+        "phenomenonTime": "2017-02-07T13:06:30Z",
+        "resultTime": "2017-02-07T13:07:08Z",
+        "process": {
+            "intervalLength": "1min|10min|sample",
+            "name": "measurment|forecast|astronomical",
+            "aspectSet": "minimum|maximum|standard"
+        },
+        "aspectMetaValues": [{
+            "name": "average",
+            "reference": "NAP",
+            "unit": "m"
+        },
+        {
+            "name": "minimum",
+            "reference": "NAP",
+            "unit": "m"
+        },
+        {
+            "name": "surface",
+            "reference": null,
+            "unit": "m2"
+        },
+        {
+            "name": "liveliness",
+            "reference": null,
+            "unit": "m"
+        },
+        {
+            "name": "peakDuration",
+            "reference": null,
+            "unit": "s"
+        }],
+        "positions": [{
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": -1.0,
+                "unit": "m"
+            },
+            "aspects": [{
+                "name": "average",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 10.205
+            },
+            {
+                "name": "minimum",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.012
+            },
+            {
+                "name": "surface",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 1.1
+            },
+            {
+                "name": "liveliness",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            },
+            {
+                "name": "peakDuration",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            }]
+        },
+        {
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": -2.0,
+                "unit": "m"
+            },
+            "aspects": [{
+                "name": "average",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 12.205
+            },
+            {
+                "name": "minimum",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.012
+            },
+            {
+                "name": "surface",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 1.1
+            },
+            {
+                "name": "liveliness",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            },
+            {
+                "name": "peakDuration",
+                "quality": 15,
+                "uncertainty": null,
+                "value": 0.1
+            }]
+        }]
+    }]
+}
