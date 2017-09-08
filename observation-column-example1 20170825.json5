@@ -10,11 +10,11 @@ ElectricalConductance   should be WaterElectricalConductance this will be in two
 WaterSpeed
 WaterDirection
 
-Niet dit
+NIET dit
 /dd/observations/locations/HVH/observedproperties/waterlevel/process/{waarneming|verwachting|astro}/intervallength/10min/aspectset/standard/ts1/{datumtijd}/ts2/{datumtijd}
 
-Wel dit
-/dd/observations/locations/Maasmond.HoekVanHolland/observedproperties/WaterLevel/process/{measurements|forecasts|astronomical}/ts1/{datumtijd}/ts2/{datumtijd}? intervallength=10min & aspectset=standard
+WEL dit
+/dd/observations/locations/Maasmond.HoekVanHolland/observedproperties/WaterLevel/{/ts1/{datumtijd}/ts2/{datumtijd}? intervallength=10min & aspectset=standard & processname= {measurements|forecasts|astronomical}
 
 */
 
@@ -39,9 +39,8 @@ Wel dit
 			// verwachtingen in hetzelfde antwoord kunnen geven
 			"process":
 			{
-				"type": "validation|sensor|forecast",
 				"intervalLength": "1min|10min|steek",
-				"name": "model name and run??|na",
+				"name": "measurment|forecast|astronomical",
 				"aspectSet": "minimum|maximum|standard"
 			},
 			"aspectMetaValues":
