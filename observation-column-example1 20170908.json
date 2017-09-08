@@ -55,31 +55,36 @@
 				"name": "average",
 				"quality": 15,
 				"uncertainty": null,
-				"value": 1.205
+				"value": 1.205,
+				"additionalInfo": "string"
 			},
 			{
 				"name": "minimum",
 				"quality": 15,
 				"uncertainty": null,
-				"value": 0.012
+				"value": 0.012,
+				"additionalInfo": "string"
 			},
 			{
 				"name": "surface",
 				"quality": 15,
 				"uncertainty": null,
-				"value": 1.1
+				"value": 1.1,
+				"additionalInfo": "string"
 			},
 			{
 				"name": "liveliness",
 				"quality": 15,
 				"uncertainty": null,
-				"value": 0.1
+				"value": 0.1,
+				"additionalInfo": "string"
 			},
 			{
 				"name": "peakDuration",
 				"quality": 15,
 				"uncertainty": null,
-				"value": 0.1
+				"value": 0.1,
+				"additionalInfo": "string"
 			}]
 		},
 		{
