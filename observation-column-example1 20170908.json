@@ -7,11 +7,12 @@
 		"longitude": 4.1333300,
 		"altitude": 1.10,
 		"altitudeUnit": "m",
+		"altitudeReference": "MSL|NAP",
 		"crs": "ETRS89"
 	},
 	"observations": [{
 		"startTime": "2017-02-07T13:06:00Z",
-		"endTime": "2017-02-07T13:06:59Z",
+		"endTime": "2017-02-07T13:07:00Z",
 		"phenomenonTime": "2017-02-07T13:06:30Z",
 		"resultTime": "2017-02-07T13:07:06Z",
 		"process": {
@@ -56,7 +57,7 @@
 				"quality": 15,
 				"uncertainty": null,
 				"value": 1.205,
-				"additionalInfo": "string"
+				"additionalInfo": "Needed for LMW1 why?"
 			},
 			{
 				"name": "minimum",
@@ -128,9 +129,9 @@
 	},
 	{
 		"startTime": "2017-02-07T13:07:00Z",
-		"endTime": "2017-02-07T13:07:59Z",
+		"endTime": "2017-02-07T13:08:00Z",
 		"phenomenonTime": "2017-02-07T13:07:30Z",
-		"resultTime": "2017-02-07T13:07:08Z",
+		"resultTime": "2017-02-07T13:08:08Z",
 		"process": {
 			"intervalLength": "1min|10min|sample",
 			"name": "measurment|forecast|astronomical",

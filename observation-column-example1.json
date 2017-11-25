@@ -16,7 +16,7 @@
 			"process": 
 			{
 				"type": "validation|sensor|forecast",
-				"intervalLength": "1min|10min |steek",
+				"intervalLength": "1min|10min",
 				"name": "model name and run??|na"
 			},
 			"aspectMetaValues": 
