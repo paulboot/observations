@@ -1,7 +1,8 @@
 {
 	"observedProperty": "WaterLevel",
-	"locationName": "Amstrdam-Rijnkanaal.Utrechtpand.Maarssen.Oostkanaaldijk",
+	"locationName": "Maarssen.Oostkanaaldijk",
 	"locationNameSpace": "NL.RWS.WM",
+	"locationNameParent": "Amsterdam-Rijnkanaal",
 	"locationAnchorPoint": {
 		"latitude": 51.9775000,
 		"longitude": 4.1333300,
@@ -16,7 +17,7 @@
 		"phenomenonTime": "2017-02-07T13:06:30Z",
 		"resultTime": "2017-02-07T13:07:06Z",
 		"process": {
-			"intervalLength": "1min|10min|sample",
+			"intervalLength": "1min|10min",
 			"name": "measurment|forecast|astronomical",
 			"aspectSet": "minimum|maximum|standard"
 		},
