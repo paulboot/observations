@@ -1,8 +1,9 @@
 {
 	"observedProperty": "WaterLevel",
-	"locationName": "Maarssen.Oostkanaaldijk",
+	"locationName": "maarssen.oostkanaaldijk",
 	"locationNameSpace": "NL.RWS.WM",
-	"locationNameParent": "Amsterdam-Rijnkanaal",
+	"locationNameParent": "noordzeekanaal-amsterdamrijnkanaal",
+	"locationNameParentAlias": [],
 	"locationAnchorPoint": {
 		"latitude": 51.9775000,
 		"longitude": 4.1333300,
