@@ -4,6 +4,8 @@
 	"locationNameSpace": "NL.RWS.WM",
 	"locationNameParent": "noordzeekanaal-amsterdamrijnkanaal",
 	"locationNameParentAlias": [],
+    "locationDisplayNameGlobal": "",
+    "locationDisplayNameDetail": "",
 	"locationAnchorPoint": {
 		"latitude": 51.9775000,
 		"longitude": 4.1333300,
