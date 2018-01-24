@@ -1,6 +1,6 @@
 {
 	"property": "WaterLevel",
-	"propertyAlias": ["wathte"],
+	"propertyAlias": ["WATHTE"],
 	"locationName": "maarssen.oostkanaaldijk",
 	"locationNameSpace": "NL.RWS.WM",
 	"locationNameParent": "noordzeekanaal-amsterdamrijnkanaal",
