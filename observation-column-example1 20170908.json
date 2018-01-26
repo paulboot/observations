@@ -23,7 +23,11 @@
 		"process": {
 			"intervalLength": "1min|10min",
 			"name": "measurment|forecast|astronomical",
-			"aspectSet": "minimum|maximum|standard"
+			"aspectSet": "minimum|maximum|standard",
+            "sensorType": "HIDDEN, float|radar ",
+            "sensorModel": "HIDDEN",
+            "modelID": "OPTIONAL, HIDDEN model what was used to create the data",
+            "sensorID": "OPTIONAL, unique ID or interface ID /gwxxx.nport1.p1 gwxxx.switch1.p1"  
 		},
 		"aspectMetaValues": [{
 			"name": "average",
